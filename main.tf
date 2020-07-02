@@ -97,10 +97,6 @@ resource aws_route_table "hashicat" {
 resource aws_route_table_association "hashicat" {
   subnet_id      = aws_subnet.hashicat.id
   route_table_id = aws_route_table.hashicat.id
-  tags = {
-    Billable = "true"
-    Department = "devops"
-  }
 }
 
 data aws_ami "ubuntu" {
@@ -133,10 +129,6 @@ resource "aws_eip" "hashicat" {
 resource "aws_eip_association" "hashicat" {
   instance_id   = aws_instance.hashicat.id
   allocation_id = aws_eip.hashicat.id
-  tags = {
-    Billable = "true"
-    Department = "devops"
-  }
 }
 
 resource aws_instance "hashicat" {
