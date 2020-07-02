@@ -88,11 +88,19 @@ resource aws_route_table "hashicat" {
     cidr_block = "0.0.0.0/0"
     gateway_id = aws_internet_gateway.hashicat.id
   }
+  tags = {
+    Billable = "true"
+    Department = "devops"
+  }
 }
 
 resource aws_route_table_association "hashicat" {
   subnet_id      = aws_subnet.hashicat.id
   route_table_id = aws_route_table.hashicat.id
+  tags = {
+    Billable = "true"
+    Department = "devops"
+  }
 }
 
 data aws_ami "ubuntu" {
